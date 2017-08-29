@@ -1,0 +1,11 @@
+- include: install.yml
+- include: client.yml
+  when: lizardfs_client
+- include: masterserver.yml
+  when: lizardfs_masterserver
+- include: chunkserver.yml
+  when: lizardfs_chunkserver
+- include: metalogger.yml
+  when: lizardfs_metalogger
+- include: cgiserver.yml
+  when: lizardfs_cgiserver

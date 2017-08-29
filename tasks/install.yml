@@ -1,0 +1,11 @@
+- name: Add LizardFS Repository Key
+  apt_key:
+    url: http://packages.lizardfs.com/lizardfs.key
+    keyring: /etc/apt/trusted.gpg.d/lizardfs.gpg
+    state: present
+
+- name: Add LizardFS Repository to sources.list
+  apt_repository:
+    repo: 'deb http://packages.lizardfs.com/{{ ansible_distribution|lower }}/{{ ansible_lsb.codename }} {{ ansible_lsb.codename }} main'
+    state: present
+    update_cache: yes

@@ -1,0 +1,28 @@
+---
+- name: Install lizardfs masterserver
+  apt:
+    name: lizardfs-master
+    state: present
+
+- name: Install master server configs
+  template:
+    src: "{{ item }}.j2"
+    dest: /etc/mfs/{{ item }}
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - mfsexports.cfg
+    - mfsgoals.cfg
+    - mfsmaster.cfg
+    - mfstopology.cfg
+  notify: reload lizardfs-masterserver
+
+- name: Create empty metadata file for lizardfs masterserver
+  copy:
+    src: /var/lib/mfs/metadata.mfs.empty
+    dest: /var/lib/mfs/metadata.mfs
+    remote_src: true
+    backup: yes
+    mode: 0644
+    force: no

@@ -1,0 +1,7 @@
+lizardfs_client: true
+lizardfs_masterserver: false
+lizardfs_chunkserver: false
+lizardfs_metalogger: false
+lizardfs_cgiserver: false
+lizardfs_masterrole: master
+lizardfs_masterserver_host: mfsmaster

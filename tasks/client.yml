@@ -1,0 +1,5 @@
+---
+- name: Install lizardfs masterserver
+  apt:
+    name: lizardfs-client
+    state: present

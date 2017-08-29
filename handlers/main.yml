@@ -1,0 +1,20 @@
+---
+- name: reload lizardfs-chunkserver
+  service:
+    name: lizardfs-chunkserver
+    state: reloaded
+
+- name: reload lizardfs-masterserver
+  service:
+    name: lizardfs-master
+    state: reloaded
+
+- name: reload lizardfs-cgiserver
+  service:
+    name: lizardfs-cgiserv
+    state: reloaded
+
+- name: reload lizardfs-metalogger
+  service:
+    name: lizardfs-metalogger
+    state: reloaded

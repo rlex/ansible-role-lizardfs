@@ -1,0 +1,25 @@
+---
+- name: Install lizardfs chunkserver
+  apt:
+    name: lizardfs-chunkserver
+    state: present
+
+- name: Configure LizardFS chunkserver
+  template:
+    src: "{{ item }}.j2"
+    dest: /etc/mfs/{{ item }}
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - mfschunkserver.cfg
+    - mfshdd.cfg
+  notify: reload lizardfs-chunkserver
+
+- name: Activate LizardFS chunkserver
+  template:
+    src: lizardfs-chunkserver.j2
+    dest: /etc/default/lizardfs-chunkserver
+    mode: 0644
+    force: yes
+  notify: reload lizardfs-chunkserver
