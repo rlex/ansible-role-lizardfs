@@ -1,10 +1,10 @@
 ---
-- name: Install lizardfs masterserver
+- name: Install LizardFS masterserver
   apt:
     name: lizardfs-master
     state: present
 
-- name: Install master server configs
+- name: Install LizardFS masterserver configs
   template:
     src: "{{ item }}.j2"
     dest: /etc/mfs/{{ item }}
@@ -18,7 +18,7 @@
     - mfstopology.cfg
   notify: reload lizardfs-masterserver
 
-- name: Create empty metadata file for lizardfs masterserver
+- name: Create empty metadata file for LizardFS masterserver
   copy:
     src: /var/lib/mfs/metadata.mfs.empty
     dest: /var/lib/mfs/metadata.mfs

@@ -1,10 +1,10 @@
 ---
-- name: Install lizardfs cgiserver
+- name: Install LizardFS cgiserver
   apt:
     name: lizardfs-cgiserv
     state: installed
 
-- name: Configure lizardfs cgiserver
+- name: Configure LizardFS cgiserver
   template:
     src: lizardfs-cgiserv.j2
     dest: /etc/default/lizardfs-cgiserv

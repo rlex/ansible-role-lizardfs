@@ -1,5 +1,5 @@
 ---
-- name: Install lizardfs chunkserver
+- name: Install LizardFS chunkserver
   apt:
     name: lizardfs-chunkserver
     state: present
