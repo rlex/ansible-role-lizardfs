@@ -1,5 +1,15 @@
 ---
-- name: Install lizardfs masterserver
+- name: Install lizardfs client
   apt:
     name: lizardfs-client
     state: present
+
+- name: Mount LizardFS volumes
+  mount:
+    path: "{{ item.path }}"
+    src: mfsmount
+    opts: "{{ item.opts | default('mfsmaster=lizardfs_masterserver_host') }}"
+    fstype: fuse
+    state: "{{ item.state | default('mounted') }}"
+  with_items: "{{ lizardfs_mounts }}"
+  when: lizardfs_mounts|length > 0

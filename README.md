@@ -39,21 +39,16 @@ lizardfs_disks:
   - /mnt/lizard_vol4
 lizardfs_exports:
   - '10.11.11.0/24 / rw,alldirs,maproot=0'
+  - '10.11.11.0/24 /logs ro,alldirs,maproot=0'
 ```
 
-Just lizardfs repo & client:
+Just lizardfs repo, client and some mounts:
 ```
 lizardfs_managed: true
 lizardfs_client: true
-```
-
-You can then mount lizardfs volumes with ansible like this:
-```
-- name: Mount lizardfs volume
-  mount:
-    path: /mnt/lizard_root
-    src: mfsmount
-    opts: rw,mfsmaster=10.91.91.71
-    fstype: fuse
-    state: present
+lizardfs_mounts:
+  - path: /mnt/lizard_root
+    opts: mfsmaster={{ lizardfs_masterserver_host }}
+  - path: /mnt/lizard_logs
+    opts: mfsmaster={{ lizardfs_masterserver_host }},mfssubfolder=/logs
 ```
