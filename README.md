@@ -1,4 +1,4 @@
-Basically rewrite of https://github.com/stenub/lizardfs_ansible_playbook
+Basically rewrite of https://github.com/stenub/lizardfs_ansible_playbook  
 Differences:
   * Only one role with role params to select parts of lizardfs
   * Manages only LizardFS and nothing more
@@ -22,13 +22,14 @@ lizardfs_masterserver_host: 10.91.91.71
 lizardfs_cgiserver: true
 lizardfs_exports:
   - '192.168.18.0/24 / rw,alldirs,maproot=0'
+  - '10.11.11.0/24 /logs ro,alldirs,maproot=0'
 ```
 
 Shadowmaster and chunkserver:
 ```
 lizardfs_managed: true
 lizardfs_masterserver: true
-lizardfs_master_personality: master
+lizardfs_master_personality: shadow
 lizardfs_masterserver_host: 10.91.91.71
 lizardfs_chunkserver: true
 lizardfs_metalogger: true
