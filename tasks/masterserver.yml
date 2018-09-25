@@ -1,6 +1,6 @@
 ---
 - name: Install LizardFS masterserver
-  apt:
+  package:
     name: lizardfs-master
     state: present
 

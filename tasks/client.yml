@@ -1,6 +1,6 @@
 ---
 - name: Install lizardfs client
-  apt:
+  package:
     name: lizardfs-client
     state: present
 
