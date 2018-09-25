@@ -15,6 +15,7 @@
 - name: Add LizardFS CentOS Repository
   yum_repository:
       name: lizardfs
+      description: LizardFS Packages
       baseurl: "http://packages.lizardfs.com/yum/centos{{ ansible_distribution_major_version|int }}/"
       gpgcheck: no
       file: lizardfs
