@@ -17,7 +17,8 @@
       name: lizardfs
       description: LizardFS Packages
       baseurl: "http://packages.lizardfs.com/yum/centos{{ ansible_distribution_major_version|int }}/"
-      gpgcheck: no
+      gpgcheck: yes
+      gpgkey: https://packages.lizardfs.com/lizardfs.key
       file: lizardfs
   when: ansible_distribution == "CentOS" and ansible_distribution_major_version|int >= 6
 
