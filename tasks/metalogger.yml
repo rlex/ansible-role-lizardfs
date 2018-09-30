@@ -1,6 +1,6 @@
 ---
 - name: Install LizardFS metalogger
-  apt:
+  package:
     name: lizardfs-metalogger
     state: present
 

@@ -1,6 +1,6 @@
 ---
 - name: Install LizardFS cgiserver
-  apt:
+  package:
     name: lizardfs-cgiserv
     state: installed
 

@@ -3,9 +3,22 @@
     url: http://packages.lizardfs.com/lizardfs.key
     keyring: /etc/apt/trusted.gpg.d/lizardfs.gpg
     state: present
+  when: ansible_pkg_mgr == "apt"
 
 - name: Add LizardFS Repository to sources.list
   apt_repository:
     repo: 'deb http://packages.lizardfs.com/{{ ansible_distribution|lower }}/{{ ansible_lsb.codename }} {{ ansible_lsb.codename }} main'
     state: present
     update_cache: yes
+  when: ansible_pkg_mgr == "apt"
+
+- name: Add LizardFS CentOS Repository
+  yum_repository:
+      name: lizardfs
+      description: LizardFS Packages
+      baseurl: "http://packages.lizardfs.com/yum/centos{{ ansible_distribution_major_version|int }}/"
+      gpgcheck: yes
+      gpgkey: https://packages.lizardfs.com/lizardfs.key
+      file: lizardfs
+  when: ansible_distribution == "CentOS" and ansible_distribution_major_version|int >= 6
+
