@@ -5,4 +5,4 @@ lizardfs_metalogger: false
 lizardfs_cgiserver: false
 lizardfs_masterrole: master
 lizardfs_masterserver_host: mfsmaster
-lizardfs_mounts: {}
+lizardfs_mounts: []
