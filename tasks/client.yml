@@ -12,4 +12,4 @@
     fstype: fuse
     state: "{{ item.state | default('mounted') }}"
   loop: "{{ lizardfs_mounts }}"
-  when: lizardfs_mounts|length > 0
+  when: lizardfs_mounts is defined and lizardfs_mounts|length > 0
