@@ -26,3 +26,5 @@
     backup: yes
     mode: 0644
     force: no
+
+- meta: flush_handlers

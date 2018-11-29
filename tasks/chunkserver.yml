@@ -23,3 +23,5 @@
     mode: 0644
     force: yes
   notify: reload lizardfs-chunkserver
+
+- meta: flush_handlers

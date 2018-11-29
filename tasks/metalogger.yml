@@ -19,3 +19,5 @@
     dest: /etc/default/lizardfs-metalogger
     mode: 0644
     force: yes
+
+- meta: flush_handlers

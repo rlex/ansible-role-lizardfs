@@ -10,3 +10,5 @@
     dest: /etc/default/lizardfs-cgiserv
     mode: 0644
   notify: reload lizardfs-cgiserver
+
+- meta: flush_handlers
